@@ -1,0 +1,19 @@
+<h1> Compare Strings</h1>
+<div [hidden]="compareScreen">
+  <p>
+      <textarea [(ngModel)]="textArea1" class="textArea1"></textarea>
+      <textarea [(ngModel)]="textArea2" class="textArea2" matInput></textarea>
+  </p>
+
+  <p>
+    <button mat-stroked-button color="primary"  (click)="compare()"class="compareButton">Compare</button>
+  </p>
+</div>
+
+<div [hidden]="!compareScreen">
+  <p>
+      <textarea class="textAreaResult">{{comparedText}}</textarea>
+  </p>
+
+  <button mat-stroked-button color="primary"  (click)="reset()"class="resetButton">Reset</button>
+</div>

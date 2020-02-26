@@ -1,0 +1,28 @@
+p {
+  font-family: Lato;
+}
+
+.textArea1 {
+  width : 40%;
+  height : 300px;
+}
+
+.textArea2 {
+  width : 40%;
+  height : 300px;
+  margin-left : 50px;
+}
+
+.textAreaResult{
+    width : 40%;
+  height : 300px;
+  margin-left : 25%;
+}
+
+.compareButton {
+  margin-left:40%;
+}
+
+.resetButton {
+  margin-left:42%;
+}
