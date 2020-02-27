@@ -17,6 +17,7 @@ p {
     width : 40%;
   height : 300px;
   margin-left : 25%;
+  border: double black;
 }
 
 .compareButton {

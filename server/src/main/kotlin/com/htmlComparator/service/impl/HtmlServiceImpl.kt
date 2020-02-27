@@ -2,6 +2,7 @@ package com.htmlComparator.service.impl
 
 import com.htmlComparator.comparator.HtmlComparator
 import com.htmlComparator.model.CompareRequest
+import com.htmlComparator.model.CompareResponse
 import com.htmlComparator.service.HtmlService
 import org.apache.commons.text.StringEscapeUtils
 import org.apache.commons.text.diff.StringsComparator
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service
 class HtmlServiceImpl : HtmlService {
 
 
-    override fun compareHtmls(compareRequest: CompareRequest):String {
+    override fun compareHtmls(compareRequest: CompareRequest): CompareResponse {
         val comparator = StringsComparator(StringEscapeUtils.unescapeHtml4(compareRequest.firstHtml),
                 StringEscapeUtils.unescapeHtml4(compareRequest.secondHtml))
 
@@ -19,7 +20,7 @@ class HtmlServiceImpl : HtmlService {
 
         comparator.script.visit(htmlComparator)
 
-        return htmlComparator.getResult()
+        return CompareResponse(htmlComparator.getResult())
     }
 
 

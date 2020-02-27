@@ -7,7 +7,6 @@ import { ApiService } from "./services/api.service";
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent implements OnInit{
-  name = 'Angular';
   compareScreen;
   textArea1;
   textArea2; 
@@ -21,9 +20,9 @@ export class AppComponent implements OnInit{
 
   compare(){
     this.compareScreen = true;
-    this.apiService.compareRequest(this.textArea1, this.textArea2).subscribe(function (response) {
-      this.comparedText = response;
-    })
+    this.comparedText = "Calculating Diff!";
+    this.apiService.compareRequest(this.textArea1, this.textArea2)
+        .subscribe(response => this.comparedText = response["response"]);
   }
 
   reset(){

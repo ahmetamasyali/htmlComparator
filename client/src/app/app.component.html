@@ -2,18 +2,16 @@
 <div [hidden]="compareScreen">
   <p>
       <textarea [(ngModel)]="textArea1" class="textArea1"></textarea>
-      <textarea [(ngModel)]="textArea2" class="textArea2" matInput></textarea>
+      <textarea [(ngModel)]="textArea2" class="textArea2"></textarea>
   </p>
 
   <p>
-    <button mat-stroked-button color="primary"  (click)="compare()"class="compareButton">Compare</button>
+    <button (click)="compare()"class="compareButton">Compare</button>
   </p>
 </div>
 
 <div [hidden]="!compareScreen">
-  <p>
-      <textarea class="textAreaResult">{{comparedText}}</textarea>
-  </p>
+    <div class="textAreaResult" [innerHTML]="comparedText | keepHtml"></div>
 
-  <button mat-stroked-button color="primary"  (click)="reset()"class="resetButton">Reset</button>
+    <button  (click)="reset()"class="resetButton">Reset</button>
 </div>

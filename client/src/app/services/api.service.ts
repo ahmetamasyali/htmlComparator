@@ -12,6 +12,6 @@ export class ApiService {
 
     public compareRequest(firstString: String, secondString: String){
         return this.httpClient.post(this.REST_API_SERVER + "/compare",
-            {'firstString':firstString, 'secondString':secondString});
+            {'firstHtml':firstString, 'secondHtml':secondString});
     }
 }
