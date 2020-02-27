@@ -1,8 +1,8 @@
-package com.ahmet.test.demo.comparator
+package com.htmlComparator.comparator
 
 import org.apache.commons.text.diff.CommandVisitor
 
-class StringComparator : CommandVisitor<Char> {
+class HtmlComparator : CommandVisitor<Char> {
     private var result = ""
     private var isInsideHtmlTag = false
 
@@ -31,5 +31,9 @@ class StringComparator : CommandVisitor<Char> {
         if (c == '<') isInsideHtmlTag = true
         if (c == '>') isInsideHtmlTag = false
         return isInsideHtmlTag || c == '>'
+    }
+
+    fun getResult():String {
+        return this.result
     }
 }
