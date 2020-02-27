@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ApiService } from "./services/api.service";
 
 @Component({
   selector: 'my-app',
@@ -12,14 +13,17 @@ export class AppComponent implements OnInit{
   textArea2; 
   comparedText;
 
+  constructor(private apiService: ApiService) { }
+
   ngOnInit(){
     this.compareScreen = false;
   }
 
   compare(){
     this.compareScreen = true;
-    this.comparedText = this.textArea1;
-    console.log(this.textArea1);
+    this.apiService.compareRequest(this.textArea1, this.textArea2).subscribe(function (response) {
+      this.comparedText = response;
+    })
   }
 
   reset(){
