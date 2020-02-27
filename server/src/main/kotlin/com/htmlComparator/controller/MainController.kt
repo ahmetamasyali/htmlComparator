@@ -16,7 +16,7 @@ class MainController {
     @Autowired
     private lateinit var htmlService:HtmlService
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = ["http://localhost:4200"])
     @PostMapping("/compare", consumes = [MediaType.APPLICATION_JSON_VALUE])
     @ResponseBody
     fun blog(@RequestBody compareRequest: CompareRequest): String {
