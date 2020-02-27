@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  server:
+    user: noone
+    build: ./server
+    ports:
+    - 8080:8080
+    networks:
+     - htmlComparatorNetwork
+
+  client:
+    user: noone
+    build: ./client
+    ports:
+      - 4200:4200
+    networks:
+      - htmlComparatorNetwork
+
+networks:
+  htmlComparatorNetwork:
+     driver: bridge
